@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="font/inter.css">
+    <link rel="stylesheet" href="vendor/normalize.css">
+    <link rel="stylesheet" href="pages/index.css">
     <title>maestro</title>
 </head>
 <body class="page">
@@ -12,14 +12,15 @@
         <img src="image/Vector.svg" alt="Лого" class="logo">
     </header>
     <main class="content">
+
         <section class="profile">
         <img src="image/avatar.png" alt="Аватарка" class="profile__avatar">
         <div class="profile__form">
-            <input type="text" value="Жак-Ив Кусто" class="profile__title inputs">
+            <input type="text" value="Жак-Ив Кусто" class="profile__title">
             <button class="profile__button">
                 <img src="image/button__prof.svg" alt="Карандаш" class="profile__button_img">
             </button>
-            <input type="text" value="Исследователь океана" class="profile__subtitle inputs">
+            <input type="text" value="Исследователь океана" class="profile__subtitle">
         </div>
         <button class="button">
             <img src="image/Plus.svg" alt="Плюс">
@@ -73,10 +74,21 @@
                     <h2 class="element__title">Ростов-на-Дону</h2>
                     <img src="image/like.svg" alt="Картинка" class="element__heart">
                 </div>
-            </img>
         </section>
 
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+    
+    <div class="popup">
+        <div class="popup__container">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input type="text" value="Жак-Ив Кусто" class="popup__author">
+            <input type="text" value="Исследователь океана" class="popup__characteristic">
+            <button class="popup__button">Сохранить</button>
+        </div>
+    </div>
+    <script src="javascript/js.js"></script>
 </body>
 </html>

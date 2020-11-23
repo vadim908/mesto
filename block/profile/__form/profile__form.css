@@ -1,0 +1,25 @@
+.profile__form {
+    max-width: 336px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    grid-template-rows: auto;
+    row-gap: 16px;
+    column-gap: 18px;
+    padding-right: 244px;
+    padding-left: 30px;
+}
+
+@media screen and (max-width: 320px) {
+    
+    .profile__form {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr minmax(min-content, max-content);
+        grid-template-rows: auto;
+        row-gap: 14px;
+        column-gap: 10px;
+        padding: 0;
+        padding-bottom: 36px;
+        padding-top: 22.25px;
+    }
+}
