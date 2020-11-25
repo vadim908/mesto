@@ -1,8 +1,10 @@
-.popup__characteristic {
+.popup__text {
     width: calc(100% - 72px);
     border: 0;
-    border-bottom: 1px solid #000000;
-    padding-top: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.2;
     padding-bottom: 13px;
     margin: auto;
     text-overflow: ellipsis;
@@ -10,9 +12,14 @@
     overflow: hidden;
 }
 
+.popup__text:last-of-type {
+    padding-top: 30px;
+    padding-bottom: 13px;
+}
+
 @media screen and (min-width: 320px) and (max-width: 767px){
     
-    .popup__characteristic {
+    .popup__text {
         width: calc(100% - 44px);
     }
 }

@@ -1,5 +1,4 @@
 .profile__form {
-    width: 100%;
     display: grid;
     grid-template-columns: repeat(2, minmax(min-content, max-content));
     grid-template-rows: auto;
@@ -12,12 +11,12 @@
 @media screen and (min-width: 320px) and (max-width: 767px){
     
     .profile__form {
-        grid-template-columns: 1fr minmax(min-content, max-content);
         row-gap: 14px;
         column-gap: 10px;
         padding: 0;
         padding-bottom: 36px;
         padding-top: 22.25px;
+        margin: auto;
     }
 }
 

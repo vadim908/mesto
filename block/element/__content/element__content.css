@@ -1,9 +1,9 @@
 .element__content {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-left: 21px;
     padding-top: 25px;
     padding-bottom: 32px;
-    
+    padding-right: 15px;
 }

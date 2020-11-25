@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="vendor/normalize.css">
     <link rel="stylesheet" href="pages/index.css">
     <title>maestro</title>
 </head>
@@ -15,13 +14,13 @@
 
         <section class="profile">
         <img src="image/avatar.png" alt="Аватарка" class="profile__avatar">
-        <div class="profile__form">
+        <form class="profile__form">
             <input type="text" value="Жак-Ив Кусто" class="profile__title">
             <button class="profile__button">
                 <img src="image/button__prof.svg" alt="Карандаш" class="profile__img">
             </button>
             <input type="text" value="Исследователь океана" class="profile__subtitle">
-        </div>
+        </form>
         <button class="button">
             <img src="image/Plus.svg" alt="Плюс">
         </button>
@@ -32,7 +31,7 @@
                 <img src="image/1.png" alt="Карачаевск" class="element__img">
                 <div class="element__content">
                     <h2 class="element__title">Карачаевск</h2>
-                    <img src="image/like.svg" alt="Картинка" class="element__heart">
+                    <button class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
                 </div>
             </div>
 
@@ -40,7 +39,7 @@
                 <img src="image/2.png" alt="Гора Эльбрус" class="element__img">
                 <div class="element__content">
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <img src="image/like.svg" alt="Картинка" class="element__heart">
+                    <button class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
                 </div>
             </div>
             
@@ -48,7 +47,7 @@
                 <img src="image/3.png" alt="Домбай" class="element__img">
                 <div class="element__content">
                     <h2 class="element__title">Домбай</h2>
-                    <img src="image/like.svg" alt="Картинка" class="element__heart">
+                    <button class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
                 </div>
             </div>
 
@@ -56,7 +55,7 @@
                 <img src="image//i-595.png" alt="Апатиты" class="element__img">
                 <div class="element__content">
                     <h2 class="element__title">Апатиты</h2>
-                    <img src="image/like.svg" alt="Картинка" class="element__heart">
+                    <button class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
                 </div>
             </div>
 
@@ -64,7 +63,7 @@
                 <img src="image/Kostroma.png" alt="Кострома" class="element__img">
                 <div class="element__content">
                     <h2 class="element__title">Кострома</h2>
-                    <img src="image/like.svg" alt="Картинка" class="element__heart">
+                    <button class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
                 </div>
             </div>
 
@@ -72,7 +71,7 @@
                 <img src="image/Rostov_na_Dony.png" alt="Ростов-на-Дону" class="element__img">
                 <div class="element__content">
                     <h2 class="element__title">Ростов-на-Дону</h2>
-                    <img src="image/like.svg" alt="Картинка" class="element__heart">
+                    <button class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
                 </div>
             </div>
         </section>
@@ -84,12 +83,12 @@
     
     <div class="popup">
         <button class="popup__button-close"></button>
-        <div class="popup__container">
+        <form class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input type="text" value="Жак-Ив Кусто" class="popup__author">
-            <input type="text" value="Исследователь океана" class="popup__characteristic">
-            <button class="popup__button">Сохранить</button>
-        </div>
+            <input name="popup-author" type="text" value="Жак-Ив Кусто" class="popup__text popup__text_author">
+            <input name="popup-characteristic" type="text" value="Исследователь океана" class="popup__text popup__text_characteristic">
+            <button type="submit" class="popup__button">Сохранить</button>
+        </form>
     </div>
     <script src="javascript/js.js"></script>
 </body>

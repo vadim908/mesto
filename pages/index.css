@@ -19,10 +19,9 @@
 @import url(../block/footer/footer.css);
 @import url(../block/footer/__copyright/footer__copyright.css);
 @import url(../block/popup/popup.css);
-@import url(../block/popup/__opened/popup__opened.css);
+@import url(../block/popup/_opened/popup_opened.css);
 @import url(../block/popup/__container/popup__container.css);
 @import url(../block/popup/__title/popup__title.css);
-@import url(../block/popup/__author/popup__author.css);
-@import url(../block/popup/__characteristic/popup__characteristic.css);
+@import url(../block/popup/__text/popup__text.css);
 @import url(../block/popup/__button/popup__button.css);
 @import url(../block/popup/__button-close/popup__button-close.css);
