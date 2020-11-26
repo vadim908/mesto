@@ -1,6 +1,6 @@
 .profile__subtitle {
-    width: 100%;
     grid-column: 1/-1;
+    max-width: 336px;
     font-weight: normal;
     font-size: 18px;
     line-height: 1.2;
