@@ -1,0 +1,16 @@
+.popup-cards__container {
+    display: flex;
+    flex-direction: column;
+    min-width: 430px;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    
+    .popup-cards__container {
+        min-width: 282px;
+    }
+}

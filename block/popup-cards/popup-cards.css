@@ -1,4 +1,4 @@
-.popup {
+.popup-cards {
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -6,10 +6,10 @@
     left: 0;
     top: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: flex;
     opacity: 0;
     visibility: hidden;
     transition: visibility .5s, opacity .5s;

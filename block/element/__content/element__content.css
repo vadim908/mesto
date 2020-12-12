@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding-left: 21px;
-    padding-top: 25px;
-    padding-bottom: 32px;
     padding-right: 15px;
+    height: 79px;
 }

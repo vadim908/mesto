@@ -1,0 +1,10 @@
+.element__button {
+    border: 0;
+    position: absolute;
+    right: 15px;
+    top: 18px;
+    background: url('../../../image/Trash.svg') center no-repeat;
+    background-size: 100%;
+    width: 18px;
+    height: 19.3px;
+}

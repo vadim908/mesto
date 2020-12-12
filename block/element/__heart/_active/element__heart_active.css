@@ -1,0 +1,6 @@
+.element__heart_active {
+    background: url('../../../../image/Union.svg') center no-repeat;
+    width: 20px;
+    height: 18px;
+    background-size: 100%;
+}

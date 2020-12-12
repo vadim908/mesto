@@ -28,53 +28,18 @@
         </section>
 
         <section class="elements">
+
+            <template id="card">
             <div class="element">
-                <img src="image/1.png" alt="Карачаевск" class="element__img">
+                <a class="element__a"><img src="image/1.png" alt="Карачаевск" class="element__img"></a>
+                <button class="element__button"></button>
                 <div class="element__content">
                     <h2 class="element__title">Карачаевск</h2>
-                    <button type="button" class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
+                    <button type="button" class="element__heart"></button>
                 </div>
             </div>
-
-            <div class="element">
-                <img src="image/2.png" alt="Гора Эльбрус" class="element__img">
-                <div class="element__content">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button type="button" class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
-                </div>
-            </div>
+            </template>
             
-            <div class="element">
-                <img src="image/3.png" alt="Домбай" class="element__img">
-                <div class="element__content">
-                    <h2 class="element__title">Домбай</h2>
-                    <button type="button" class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="image//i-595.png" alt="Апатиты" class="element__img">
-                <div class="element__content">
-                    <h2 class="element__title">Апатиты</h2>
-                    <button type="button" class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="image/Kostroma.png" alt="Кострома" class="element__img">
-                <div class="element__content">
-                    <h2 class="element__title">Кострома</h2>
-                    <button type="button" class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
-                </div>
-            </div>
-
-            <div class="element">
-                <img src="image/Rostov_na_Dony.png" alt="Ростов-на-Дону" class="element__img">
-                <div class="element__content">
-                    <h2 class="element__title">Ростов-на-Дону</h2>
-                    <button type="button" class="element__heart"><img src="image/like.svg" alt="Картинка" ></button>
-                </div>
-            </div>
         </section>
 
     </main>
@@ -82,6 +47,16 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     
+    <div class="popup-cards">
+        <button type="button" class="popup-cards__button-close"></button>
+        <form name="poop-container" class="popup-cards__container">
+            <h2 class="popup-cards__title">Новое место</h2>
+            <input name="popup-name" type="text" placeholder="Название" value="" class="popup-cards__text popup-cards__text_name">
+            <input name="popup-url" type="text" placeholder="Ссылка на картинку" value="" class="popup-cards__text popup-cards__text_url">
+            <button type="submit" class="popup-cards__button">Создать</button>
+        </form>
+    </div>
+
     <div class="popup">
         <button type="button" class="popup__button-close"></button>
         <form name="poop-container" class="popup__container">
@@ -90,6 +65,14 @@
             <input name="popup-characteristic" type="text" value="Исследователь океана" class="popup__text popup__text_characteristic">
             <button type="submit" class="popup__button">Сохранить</button>
         </form>
+    </div>
+
+    <div class="popup-img">
+        <div class="popup-img__position">
+            <button type="button" class="popup-img__button"></button>
+            <img src="image/1.png" alt="Карачаевск" class="popup-img__content">
+            <h2 class="popup-img__title">Карачаевск</h2>
+        </div>
     </div>
     <script src="javascript/js.js"></script>
 </body>

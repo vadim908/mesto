@@ -1,9 +1,14 @@
 .element__heart{
     border: 0;
     background-color: white;
+    background: url('../../../image/like.svg');
+    background-size: 100%;
+    width: 20px;
+    height: 18px;
 }
 
 .element__heart:hover {
     opacity: 0.5;
     cursor: pointer;
 }
+
