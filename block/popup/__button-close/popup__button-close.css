@@ -7,7 +7,9 @@
     border: 0;
     padding: 0;
     margin-left: 450px;
-   
+    position: absolute;
+    right: -40px;
+    top: -41px;
 }
 
 .popup__button-close:hover {

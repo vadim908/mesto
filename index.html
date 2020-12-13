@@ -32,7 +32,7 @@
             <template id="card">
             <div class="element">
                 <img src="image/1.png" alt="Карачаевск" class="element__img">
-                <button class="element__button"></button>
+                <button type="button" class="element__trash"></button>
                 <div class="element__content">
                     <h2 class="element__title">Карачаевск</h2>
                     <button type="button" class="element__heart"></button>
@@ -47,33 +47,38 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     
-    <div class="popup-cards">
-        <button type="button" class="popup-cards__button-close"></button>
-        <form name="poop-container" class="popup-cards__container">
-            <h2 class="popup-cards__title">Новое место</h2>
-            <input name="popup-name" type="text" placeholder="Название" value="" class="popup-cards__text popup-cards__text_name">
-            <input name="popup-url" type="text" placeholder="Ссылка на картинку" value="" class="popup-cards__text popup-cards__text_url">
-            <button type="submit" class="popup-cards__button">Создать</button>
-        </form>
-    </div>
-
-    <div class="popup">
-        <button type="button" class="popup__button-close"></button>
-        <form name="poop-container" class="popup__container">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input name="popup-author" type="text" value="Жак-Ив Кусто" class="popup__text popup__text_author">
-            <input name="popup-characteristic" type="text" value="Исследователь океана" class="popup__text popup__text_characteristic">
-            <button type="submit" class="popup__button">Сохранить</button>
-        </form>
-    </div>
-
-    <div class="popup-img">
+    <div class="popup popup-cards">
         <div class="popup-img__position">
-            <button type="button" class="popup-img__button"></button>
+            <button type="button" class="popup__button-close popup-cards__button-close"></button>
+            <form name="poop-container" class="popup-cards__container">
+                <h2 class="popup-cards__title">Новое место</h2>
+                <input name="popup-name" type="text" placeholder="Название" value="" class="popup-cards__text popup-cards__text_name">
+                <input name="popup-url" type="text" placeholder="Ссылка на картинку" value="" class="popup-cards__text popup-cards__text_url">
+                <button type="submit" class="popup-cards__button">Создать</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup-edit">
+        <div class="popup-img__position">
+            <button type="button" class="popup__button-close popup-edit__button-close"></button>
+            <form name="poop-container" class="popup__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input name="popup-author" type="text" value="Жак-Ив Кусто" class="popup__text popup__text_author">
+                <input name="popup-characteristic" type="text" value="Исследователь океана" class="popup__text popup__text_characteristic">
+                <button type="submit" class="popup__button">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup-img">
+        <div class="popup-img__position">
+            <button type="button" class="popup__button-close popup-img__button-close"></button>
             <img src="image/1.png" alt="Карачаевск" class="popup-img__content">
             <h2 class="popup-img__title">Карачаевск</h2>
         </div>
     </div>
-    <script src="javascript/js.js"></script>
+    <script src="javascript/massive.js"></script>
+    <script src="javascript/script.js"></script>
 </body>
 </html>

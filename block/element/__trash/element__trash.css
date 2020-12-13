@@ -1,4 +1,4 @@
-.element__button {
+.element__trash {
     border: 0;
     position: absolute;
     right: 15px;
@@ -7,4 +7,5 @@
     background-size: 100%;
     width: 18px;
     height: 19.3px;
+    cursor: pointer;
 }
