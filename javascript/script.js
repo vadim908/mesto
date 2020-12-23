@@ -18,6 +18,27 @@ const poopImg = document.querySelector('.popup-img');
 const poopImgCon = document.querySelector('.popup-img__content');
 const poopImgTitle = document.querySelector('.popup-img__title');
 const poopImgButtonClosed = document.querySelector('.popup-img__button-close');
+const popup = document.querySelectorAll('.popup');
+
+
+const closePopupKey = (evt) => {
+    const popurOpen = document.querySelector('.popup_opened');
+    if (evt.key === 'Escape' && popurOpen != null) {
+        popup.forEach((item) => {
+            item.classList.remove('popup_opened');
+        });
+      };
+}
+
+const closeOverlay = (evt) => {
+    popup.forEach((item) => {
+        if(evt.target === item){
+            item.classList.remove('popup_opened');
+        };
+    });
+    
+
+}
 
 function openAndClosePopup(data){
     data.classList.toggle('popup_opened');
@@ -75,6 +96,11 @@ function createNewCard(event){
 }
 
 
+
+document.addEventListener('click', closeOverlay);
+
+document.addEventListener('keydown', closePopupKey);
+
 profileButton.addEventListener('click', ()  => openAndClosePopup(popupEdit));
 buttonSetCards.addEventListener('click', ()  => openAndClosePopup(popupCards));
 
@@ -86,7 +112,6 @@ popupForm.addEventListener('submit', savePopupEditForm);
 popurCardsForm.addEventListener('submit', createNewCard);
 
 rendreList();
-
 
 
 

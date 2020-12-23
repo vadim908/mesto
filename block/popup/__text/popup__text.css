@@ -13,8 +13,7 @@
 }
 
 .popup__text:last-of-type {
-    padding-top: 30px;
-    padding-bottom: 13px;
+    margin-top: 30px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px){
@@ -23,3 +22,4 @@
         width: calc(100% - 44px);
     }
 }
+

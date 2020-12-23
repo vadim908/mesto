@@ -1,0 +1,12 @@
+.popup__text-error_active {
+    display: block;
+    max-width: 350px;
+    height: 0px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: #FF0000;
+    padding-left: 36px;
+    overflow: visible;
+}
