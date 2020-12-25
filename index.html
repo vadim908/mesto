@@ -31,7 +31,7 @@
 
             <template id="card">
             <div class="element">
-                <img src="image/1.png" alt="Карачаевск" class="element__img">
+                <img src="image/1.png" alt="" class="element__img">
                 <button type="button" class="element__trash"></button>
                 <div class="element__content">
                     <h2 class="element__title">Карачаевск</h2>
@@ -52,10 +52,10 @@
             <button type="button" class="popup__button-close popup-cards__button-close"></button>
             <form name="poop-container" novalidate class="popup__container popup-cards__container">
                 <h2 class="popup__title">Новое место</h2>
-                <input id="popup-name" required minlength='2' maxlength='30' name="popup-name" type="text" placeholder="Название" value="" class=" popup__text popup-cards__name">
-                <span class="popup-name-error"></span>
-                <input id="popup-url"  type="url" required placeholder="Ссылка на картинку" value="" class="popup__text popup-cards__url">
-                <span class="popup-url-error"></span>
+                <input id="popup-text" required minlength='2' maxlength='30' name="popup-name" type="text" placeholder="Название" value="" class=" popup__text popup-cards__name">
+                <span id="popup-text-error" class="error"></span>
+                <input id="popup-url" name="popup-url" type="url" required placeholder="Ссылка на картинку" value="" class="popup__text popup-cards__url">
+                <span id="popup-url-error" class="error"></span>
                 <button type="submit" class="popup__button popup-cards__button">Создать</button>
             </form>
         </div>
@@ -66,10 +66,10 @@
             <button type="button" class="popup__button-close popup-edit__button-close"></button>
             <form name="poop-container" novalidate class="popup__container popup-edit__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input id="popup-author"  type="text" required value="Жак-Ив Кусто" minlength='2' maxlength='40' class="popup__text popup__text_author">
-                <span class="popup-author-error"></span>
-                <input id="popup-characteristic" name="popup-characteristic" required type="text" value="Исследователь океана" minlength='2' maxlength='200' class="popup__text popup__text_characteristic">
-                <span class="popup-characteristic-error"></span>
+                <input id="popup-author" name="popup-author" type="text" value="" required placeholder="Жак-Ив Кусто" minlength='2' maxlength='40' class="popup__text popup__text_author">
+                <span id="popup-author-error" class="error"></span>
+                <input id="popup-characteristic" name="popup-characteristic" value="" required type="text" placeholder="Исследователь океана" minlength='2' maxlength='200' class="popup__text popup__text_characteristic">
+                <span id="popup-characteristic-error" class="error"></span>
                 <button type="submit" class="popup__button">Сохранить</button>
             </form>
         </div>
@@ -82,8 +82,8 @@
             <h2 class="popup-img__title">Карачаевск</h2>
         </div>
     </div>
-    <script src="javascript/Validity.js"></script>
+    <script src="javascript/validate.js"></script>
     <script src="javascript/initialCards.js"></script>
-    <script src="javascript/script.js"></script>
+    <script src="javascript/index.js"></script>
 </body>
 </html>
