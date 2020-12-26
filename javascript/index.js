@@ -22,9 +22,10 @@ const popups = document.querySelectorAll('.popup');
 
 
 const closePopupKeyEscape = (evt) => {
+    
     const popurOpen = document.querySelector('.popup_opened');
     if (evt.key === 'Escape' && popurOpen != null) {
-        popurOpen.classList.remove('popup_opened')
+        closePopup(popurOpen);
       };
 }
 
@@ -32,21 +33,29 @@ const closePopupKeyEscape = (evt) => {
 
 const closeOverlay = (evt) => {
     const popurOpen = document.querySelector('.popup_opened');
-        if(evt.target === popurOpen && popurOpen != null){
-            popurOpen.classList.remove('popup_opened')
+        if(evt.target === popurOpen){
+            closePopup(popurOpen);
         };
 }
 
 function openPopup(data){
     data.classList.add('popup_opened');
+    addInfoPopupEdit();
+    document.addEventListener('keydown', closePopupKeyEscape);
+    document.addEventListener('mousedown', closeOverlay);
+
+}
+
+function addInfoPopupEdit () {
     if (popupEdit != null){
-        popupAuthor.textContent = profileAvatar.textContent;
-        popupCharacteristic.textContent = profileSubtitle.textContent;
+        popupAuthor.value = profileAvatar.textContent;
+        popupCharacteristic.value = profileSubtitle.textContent;
     }
 }
 
 function closePopup(data){
     data.classList.remove('popup_opened');
+    
 }
 
 
@@ -68,7 +77,7 @@ function createCards(item) {
     const imgElement = newItem.querySelector('.element__img');
     headerElement.textContent = item.name;
     imgElement.src = item.link;
-    imgElement.alt = headerElement.textContent;
+    imgElement.alt = item.name;
     const removeButton = newItem.querySelector('.element__trash');
     
     removeButton.addEventListener('click', removeCard);
@@ -80,6 +89,7 @@ function createCards(item) {
 function openPoopImg(img, header){
     openPopup(poopImg);
     poopImgCon.src = img.src;
+    poopImgCon.alt = header.textContent;
     poopImgTitle.textContent = header.textContent;
 }
 
@@ -104,9 +114,8 @@ function  handleNewCard(event){
 
 
 
-document.addEventListener('mousedown', closeOverlay);
 
-document.addEventListener('keydown', closePopupKeyEscape);
+
 
 profileButton.addEventListener('click', ()  => openPopup(popupEdit));
 buttonSetCards.addEventListener('click', ()  => openPopup(popupCards));

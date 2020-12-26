@@ -30,7 +30,7 @@
 @import url(../block/popup-img/__content/popup-img__content.css);
 @import url(../block/popup-img/__title/popup-img__title.css);
 @import url(../block/popup/__position/popup__position.css);
-@import url(../block/popup/__form/_error/popup__form_error.css);
+@import url(../block/popup/__text/_error/popup__text_error.css);
 
 @import url(../block/error/error.css);
 @import url(../block/error/_active/error_active.css);

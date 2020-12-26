@@ -76,6 +76,6 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     inputSelector: '.popup__text',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__form_error',
+    inputErrorClass: 'popup__text_error',
     errorClass: 'error_active'
   }); 
