@@ -27,7 +27,7 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
     const buttonElement = formElement.querySelector(config.submitButtonSelector);
     toggleButtonState(inputList, buttonElement, config);
-
+    
     inputList.forEach((inputElement) => {
 
       inputElement.addEventListener('input', () => {
@@ -40,7 +40,7 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
 
   const enableValidation = (config) => {
 
-    const formList = Array.from(document.querySelectorAll(config.formSelector));
+    const formList = document.querySelectorAll(config.formSelector);
 
 
     formList.forEach((formElement) => {
@@ -70,12 +70,21 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     }
   }; 
 
+  const toggleFormState = (formElement, config) => {
+    const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+    const buttonElement = formElement.querySelector(config.submitButtonSelector);
+    
+    toggleButtonState(inputList, buttonElement, config);
+  }; 
 
-  enableValidation({
+
+  const VALIDATION_SELECTORS_CONFIG = {
     formSelector: '.popup__container',
     inputSelector: '.popup__text',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_disabled',
     inputErrorClass: 'popup__text_error',
     errorClass: 'error_active'
-  }); 
+  };
+  
+  enableValidation(VALIDATION_SELECTORS_CONFIG); 
