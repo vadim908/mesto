@@ -10,14 +10,16 @@ const buttonSetCards = document.querySelector('.button');
 const popupCards = document.querySelector('.popup-cards');
 const popurCardsForm = document.querySelector('.popup-cards__container');
 const popupCardsButtonClose = document.querySelector('.popup-cards__button-close');
-const poopImg = document.querySelector('.popup-img');
-
-const templateCards = document.querySelector('#card');
 const elementsCards = document.querySelector('.elements');
-
-
+const templateCards = document.querySelector('#card');
 const newCardsElementName = document.querySelector('.popup-cards__name');
 const newCardsElementImg = document.querySelector('.popup-cards__url');
+const poopImg = document.querySelector('.popup-img');
+const poopImgCon = document.querySelector('.popup-img__content');
+const poopImgTitle = document.querySelector('.popup-img__title');
+const poopImgButtonClosed = document.querySelector('.popup-img__button-close');
+
+
 
 const closePopupKeyEscape = (evt) => {
     
@@ -40,12 +42,19 @@ function openPopup(data){
     data.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupKeyEscape);
     document.addEventListener('mousedown', closeOverlay);
+
 }
 
 function addInfoPopupEdit () {
-    popupAuthor.value = profileAvatar.textContent;
-    popupCharacteristic.value = profileSubtitle.textContent;
+        popupAuthor.value = profileAvatar.textContent;
+        popupCharacteristic.value = profileSubtitle.textContent;
 }
+
+function closePopup(data){
+    data.classList.remove('popup_opened');
+    
+}
+
 
 function savePopupEditForm(evt){
     evt.preventDefault();
@@ -54,40 +63,67 @@ function savePopupEditForm(evt){
     closePopup(popupEdit);
 }
 
+function rendrList(){
+    const itemCards =  initialCards.map(createCards);
+    elementsCards.append(...itemCards);
+}
 
-
- function openPoopImg (img, header) {
-    openPopup(poopImg);
-    const poopImgCon = document.querySelector('.popup-img__content');
-    const poopImgTitle = document.querySelector('.popup-img__title');
-    poopImgCon.src = img.src;
-    poopImgCon.alt = header.textContent;
-    poopImgTitle.textContent = header.textContent;
+function createCards(item) {
+    const newItem = templateCards.content.cloneNode(true); 
+    const headerElement = newItem.querySelector('.element__title');
+    const imgElement = newItem.querySelector('.element__img');
+    headerElement.textContent = item.name;
+    imgElement.src = item.link;
+    imgElement.alt = item.name;
+    const removeButton = newItem.querySelector('.element__trash');
+    
+    removeButton.addEventListener('click', removeCard);
+    imgElement.addEventListener('click', () => openPoopImg(imgElement, headerElement));
+    newItem.querySelector('.element__heart').addEventListener('click', handleLikeButton);
+    return newItem;
 }
 
 function  handleNewCard(event){
     event.preventDefault();
     const headerText = newCardsElementName.value;
     const imgSrc = newCardsElementImg.value;
+    const newCards = createCards({ name: headerText , link: imgSrc });
+    elementsCards.prepend(newCards);
+    closePopup(popupCards);
+}
 
-    const card = new Cards (headerText, imgSrc);
-    const cardsElement = card._generateCard();
-    elementsCards.prepend(cardsElement);
+export function openPoopImg(img, header){
+    openPopup(poopImg);
+    poopImgCon.src = img.src;
+    poopImgCon.alt = header.textContent;
+    poopImgTitle.textContent = header.textContent;
+}
+
+function handleLikeButton (evt) {
+    evt.target.classList.toggle('element__heart_active');
 }
 
 
 
-function closePopup(data){
-    data.classList.remove('popup_opened');
-    
+function removeCard(event){
+    event.target.closest('.element').remove()
 }
+
+
+
 
 profileButton.addEventListener('click', ()  => {
     openPopup(popupEdit)
+    addInfoPopupEdit();
+    toggleFormState(popupEditForm, VALIDATION_SELECTORS_CONFIG);
+
 });
 
 buttonSetCards.addEventListener('click', ()  =>{ 
+    popurCardsForm.reset()
     openPopup(popupCards);
+    toggleFormState(popupEditForm, VALIDATION_SELECTORS_CONFIG);
+ 
 });
 
 
@@ -99,6 +135,14 @@ poopImg.addEventListener('click', ()  => closePopup(poopImg));
 popupEditForm.addEventListener('submit', savePopupEditForm);
 popurCardsForm.addEventListener('submit',  handleNewCard);
 
-export { openPoopImg } 
-import {Cards} from './card.js';
-import {initialCards} from './initialCards.js';
+rendrList();
+
+
+
+
+
+
+
+
+
+
