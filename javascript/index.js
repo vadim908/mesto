@@ -40,11 +40,13 @@ function openPopup(data){
     data.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupKeyEscape);
     document.addEventListener('mousedown', closeOverlay);
+
 }
 
 function addInfoPopupEdit () {
     popupAuthor.value = profileAvatar.textContent;
     popupCharacteristic.value = profileSubtitle.textContent;
+    
 }
 
 function savePopupEditForm(evt){
@@ -56,7 +58,7 @@ function savePopupEditForm(evt){
 
 
 
- function openPoopImg (img, header) {
+ export function openPoopImg (img, header) {
     openPopup(poopImg);
     const poopImgCon = document.querySelector('.popup-img__content');
     const poopImgTitle = document.querySelector('.popup-img__title');
@@ -67,12 +69,18 @@ function savePopupEditForm(evt){
 
 function  handleNewCard(event){
     event.preventDefault();
+    
     const headerText = newCardsElementName.value;
     const imgSrc = newCardsElementImg.value;
-
+    
+   
     const card = new Cards (headerText, imgSrc);
     const cardsElement = card._generateCard();
+    
     elementsCards.prepend(cardsElement);
+    closePopup(popupCards)
+    popurCardsForm.reset();
+    
 }
 
 
@@ -84,10 +92,18 @@ function closePopup(data){
 
 profileButton.addEventListener('click', ()  => {
     openPopup(popupEdit)
+    addInfoPopupEdit();
+
+    const profileValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, popupEditForm);
+    profileValidator.toggleFormState();
+
 });
 
 buttonSetCards.addEventListener('click', ()  =>{ 
     openPopup(popupCards);
+    const cardsValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, popurCardsForm);
+    cardsValidator.toggleFormState();
+
 });
 
 
@@ -99,6 +115,7 @@ poopImg.addEventListener('click', ()  => closePopup(poopImg));
 popupEditForm.addEventListener('submit', savePopupEditForm);
 popurCardsForm.addEventListener('submit',  handleNewCard);
 
-export { openPoopImg } 
+
 import {Cards} from './card.js';
-import {initialCards} from './initialCards.js';
+import {FormValidator} from './FormValidator.js';
+import {VALIDATION_SELECTORS_CONFIG} from './validationConfig.js';

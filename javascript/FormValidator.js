@@ -29,7 +29,7 @@ class FormValidator {
     };
 
     _setEventListeners(){
-
+      
       const inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
       const buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
       this._toggleButtonState(inputList, buttonElement, this._config);
@@ -38,25 +38,27 @@ class FormValidator {
   
         inputElement.addEventListener('input', () => {
   
-          this._isValid(this._formElement, inputElement, this._config);
+          this._isValid(inputElement);
           this._toggleButtonState(inputList, buttonElement, this._config);
+          
         });
       });
     }; 
 
     enableValidation () {
-
+      
       const formList = document.querySelectorAll(this._config.formSelector);
-  
-  
+      
+      
       formList.forEach(() => {
         this._formElement.addEventListener('submit', (evt) => {
           evt.preventDefault();
         });
+        
         this._setEventListeners();
       });
     }
-
+      
       _toggleButtonState (inputList, buttonElement) {
     
         if (this._hasInvalidInput(inputList)) {
@@ -69,11 +71,11 @@ class FormValidator {
         }
       }; 
       
-      _toggleFormState (){
+      toggleFormState(){
         const inputList = Array.from(this._formElement.querySelectorAll(this._config.inputSelector));
         const buttonElement = this._formElement.querySelector(this._config.submitButtonSelector);
         
-        this.toggleButtonState(inputList, buttonElement);
+        this._toggleButtonState(inputList, buttonElement);
       };
 
       _hasInvalidInput (inputList) {
@@ -84,22 +86,22 @@ class FormValidator {
     };
       
 
-    const VALIDATION_SELECTORS_CONFIG = {
-      formSelector: '.popup__container',
-      inputSelector: '.popup__text',
-      submitButtonSelector: '.popup__button',
-      inactiveButtonClass: 'popup__button_disabled',
-      inputErrorClass: 'popup__text_error',
-      errorClass: 'error_active'
-    };
+    
     
     const submitFormEditProfileNode = document.querySelector('.popup-edit__container');
-    
+    const submitFormCarts = document.querySelector('.popup-cards__container');
       
     const profileValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, submitFormEditProfileNode);
     profileValidator.enableValidation();
 
+
     
+    const cardsValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, submitFormCarts);
+      cardsValidator.enableValidation();
+
+    
+    export {FormValidator}
+    import {VALIDATION_SELECTORS_CONFIG} from './validationConfig.js';
     
 
     
