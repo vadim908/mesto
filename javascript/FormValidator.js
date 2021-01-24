@@ -46,18 +46,9 @@ class FormValidator {
     }; 
 
     enableValidation () {
-      
-      const formList = document.querySelectorAll(this._config.formSelector);
-      
-      
-      formList.forEach(() => {
-        this._formElement.addEventListener('submit', (evt) => {
-          evt.preventDefault();
-        });
-        
         this._setEventListeners();
-      });
-    }
+      };
+    
       
       _toggleButtonState (inputList, buttonElement) {
     
@@ -84,37 +75,7 @@ class FormValidator {
         })
       };
     };
-      
-
-    
-    
-    const submitFormEditProfileNode = document.querySelector('.popup-edit__container');
-    const submitFormCarts = document.querySelector('.popup-cards__container');
-      
-    const profileValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, submitFormEditProfileNode);
-    profileValidator.enableValidation();
-
-
-    
-    const cardsValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, submitFormCarts);
-      cardsValidator.enableValidation();
-
     
     export {FormValidator}
     import {VALIDATION_SELECTORS_CONFIG} from './validationConfig.js';
-    
-
-    
-    
-  
-
-
-
-    
-
-      
-
-        
-        
-        
-
+   

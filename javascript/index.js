@@ -12,7 +12,7 @@ const popurCardsForm = document.querySelector('.popup-cards__container');
 const popupCardsButtonClose = document.querySelector('.popup-cards__button-close');
 const poopImg = document.querySelector('.popup-img');
 
-const templateCards = document.querySelector('#card');
+
 const elementsCards = document.querySelector('.elements');
 
 
@@ -58,13 +58,14 @@ function savePopupEditForm(evt){
 
 
 
- export function openPoopImg (img, header) {
+const openPoopImg = (img, header) => {
     openPopup(poopImg);
     const poopImgCon = document.querySelector('.popup-img__content');
+
     const poopImgTitle = document.querySelector('.popup-img__title');
     poopImgCon.src = img.src;
-    poopImgCon.alt = header.textContent;
     poopImgTitle.textContent = header.textContent;
+    poopImgCon.alt = header.textContent;
 }
 
 function  handleNewCard(event){
@@ -72,17 +73,15 @@ function  handleNewCard(event){
     
     const headerText = newCardsElementName.value;
     const imgSrc = newCardsElementImg.value;
-    
    
-    const card = new Cards (headerText, imgSrc);
-    const cardsElement = card._generateCard();
+    const card = new Cards (headerText, imgSrc, '#card');
+    const cardsElement = card.generateCard();
     
     elementsCards.prepend(cardsElement);
     closePopup(popupCards)
     popurCardsForm.reset();
     
 }
-
 
 
 function closePopup(data){
@@ -96,6 +95,7 @@ profileButton.addEventListener('click', ()  => {
 
     const profileValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, popupEditForm);
     profileValidator.toggleFormState();
+    profileValidator.enableValidation();
 
 });
 
@@ -103,7 +103,7 @@ buttonSetCards.addEventListener('click', ()  =>{
     openPopup(popupCards);
     const cardsValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, popurCardsForm);
     cardsValidator.toggleFormState();
-
+    cardsValidator.enableValidation();
 });
 
 
@@ -115,7 +115,23 @@ poopImg.addEventListener('click', ()  => closePopup(poopImg));
 popupEditForm.addEventListener('submit', savePopupEditForm);
 popurCardsForm.addEventListener('submit',  handleNewCard);
 
+const newCard = () => {
+    initialCards.forEach((item) => {
+    // Создадим экземпляр карточки
 
+    const card = new Cards(item.name, item.link, '#card', openPoopImg);
+    // Создаём карточку и возвращаем наружу
+    const cardElement = card.generateCard();
+  
+    // Добавляем в DOM
+    document.querySelector('.elements').append(cardElement);
+  }); 
+  };
+  newCard();
+
+
+import {initialCards} from './initialCards.js'
 import {Cards} from './card.js';
 import {FormValidator} from './FormValidator.js';
 import {VALIDATION_SELECTORS_CONFIG} from './validationConfig.js';
+
