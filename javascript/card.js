@@ -15,8 +15,8 @@ class Cards {
   }
 
   _handleLike() {
-      this._element.querySelector(".element__heart").addEventListener("click", () => {
-          const handleLike = this._element.querySelector(".element__heart");
+    const handleLike = this._element.querySelector(".element__heart");
+        handleLike.addEventListener("click", () => {  
           handleLike.classList.toggle("element__heart_active");
       });
   }

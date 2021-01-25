@@ -80,10 +80,12 @@ function closePopup(data) {
 profileButton.addEventListener("click", (evt) => {
     openPopup(popupEdit);
     addInfoPopupEdit();
+    profileValidator.toggleFormState();
 });
 
 buttonSetCards.addEventListener("click", () => {
     openPopup(popupCards);
+    cardsValidator.toggleFormState();
 });
 
 popupEditButtonClose.addEventListener("click", () => closePopup(popupEdit));
@@ -93,7 +95,7 @@ poopImg.addEventListener("click", () => closePopup(poopImg));
 popupEditForm.addEventListener("submit", savePopupEditForm);
 popurCardsForm.addEventListener("submit", handleNewCard);
 
-const newCard = () => {
+const createCards = () => {
     initialCards.forEach((item) => {
         // Создадим экземпляр карточки
 
@@ -105,14 +107,12 @@ const newCard = () => {
         document.querySelector(".elements").append(cardElement);
     });
 };
-newCard();
+createCards();
 
 const profileValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, popupEditForm);
-profileValidator.toggleFormState();
 profileValidator.enableValidation();
 
 const cardsValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, popurCardsForm);
-cardsValidator.toggleFormState();
 cardsValidator.enableValidation();
 
 import { initialCards } from "./initialCards.js";
