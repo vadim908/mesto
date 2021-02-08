@@ -1,9 +1,11 @@
+import {PopupWithImage} from './PopupWithImage.js'
+
 class Cards {
-  constructor(name, link, template, openPoopImg) {
+  constructor(name, link, template, openPopupImg) {
       this._name = name;
       this._link = link;
       this._template = template;
-      this._openPoopImg = openPoopImg;
+      this._openPopupImg = openPopupImg;
   }
 
   _getTemplate() {
@@ -29,13 +31,13 @@ class Cards {
   }
 
   _openPopupImgCard(popupImg) {
-      popupImg.addEventListener("click", () => {
-          this._elementImg = popupImg;
-          this._elementTitle = this._element.querySelector(".element__title");
-          this._openPoopImg(this._elementImg, this._elementTitle);
-      });
-  }
-
+    popupImg.addEventListener("click", () => {
+        this._elementImg = popupImg;
+        this._elementTitle = this._element.querySelector(".element__title");
+        this._openPopupImg(this._elementImg, this._elementTitle);
+    });
+}
+  
   generateCard() {
       // Запишем разметку в приватное поле _element.
       // Так у других элементов появится доступ к ней.
