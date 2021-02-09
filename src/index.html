@@ -7,27 +7,27 @@
     </head>
     <body class="page">
         <header class="header">
-            <img src="<%=require('../image/Vector.svg')%>" alt="Лого" class="logo" />
+            <img src="<%=require('./image/Vector.svg')%>" alt="Лого" class="logo" />
         </header>
         <main class="content">
             <section class="profile">
                 <div class="profile__form">
-                    <img src="<%=require('../image/avatar.png')%>" alt="Аватарка" class="profile__avatar" />
+                    <img src="<%=require('./image/avatar.png')%>" alt="Аватарка" class="profile__avatar" />
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
                     <button type="button" class="profile__button">
-                        <img src="<%=require('../image/button__prof.svg')%>" alt="Карандаш" class="profile__img" />
+                        <img src="<%=require('./image/button__prof.svg')%>" alt="Карандаш" class="profile__img" />
                     </button>
                     <p class="profile__subtitle">Исследователь океана</p>
                 </div>
                 <button type="button" class="button">
-                    <img src="<%=require('../image/Plus.svg')%>" alt="Плюс" />
+                    <img src="<%=require('./image/Plus.svg')%>" alt="Плюс" />
                 </button>
             </section>
 
             <section class="elements">
                 <template id="card">
                     <div class="element">
-                        <img src="<%=require('../image/1.png')%>" alt="Караченск" class="element__img" />
+                        <img src="<%=require('./image/1.png')%>" alt="Караченск" class="element__img" />
                         <button type="button" class="element__trash"></button>
                         <div class="element__content">
                             <h2 class="element__title">Карачаевск</h2>
@@ -72,7 +72,7 @@
         <div class="popup popup-img">
             <div class="popup__position">
                 <button type="button" class="popup__button-close popup-img__button-close"></button>
-                <img src="<%=require('../image/1.png')%>" alt="" class="popup-img__content" />
+                <img src="<%=require('./image/1.png')%>" alt="" class="popup-img__content" />
                 <h2 class="popup-img__title">Карачаевск</h2>
             </div>
         </div>
