@@ -31,11 +31,9 @@ const cardsData = new UserInfo({name: ".profile__title", post: ".profile__subtit
 
 const popupCardsCreate = new PopupWithForm(
     popupCards,
-    (data)=> {
-        const card = new Cards(data.name, data.url, "#card", handleCardClick);
-        const cardsElement = card.generateCard();
-    
-        cardsList.prependAddNewItem(cardsElement);
+    (item)=> {
+        
+        cardsList.prependAddNewItem(createNewCard(item));
         popupCardsCreate.close();
     });
     popupCardsCreate.setEventListeners();
@@ -61,33 +59,23 @@ buttonSetCards.addEventListener("click", () => {
     cardsValidator.toggleFormState();
 });
 
-popupEditButtonClose.addEventListener("click", () => {
-    editPopup.close();
-});
-
-popupCardsButtonClose.addEventListener("click", () =>{
-    popupCardsCreate.close();
-});
-
-popupImgButtonClose.addEventListener("click", () => {
-    popupCardsCreate.close();
-    popupWithImg.setEventListeners();
-})
-
 const popupWithImg = new PopupWithImage(popupImg);
+popupWithImg.setEventListeners(); 
 
 function handleCardClick (img, header){
     popupWithImg.open(img, header)
 }
 
+function createNewCard(item){
+    const card = new Cards(item.name, item.link, "#card", handleCardClick); 
+    return card.generateCard();
+}
+
 const cardsList = new Section({
     items: initialCards,
     renderer: (item) => {
-    
-    const card = new Cards(item.name, item.link, "#card", handleCardClick);
-        // Создаём карточку и возвращаем наружу
-        const cardElement = card.generateCard();      
-        cardsList.addItem(cardElement);
+        
+        cardsList.addItem(createNewCard(item));
       },
     },
     containerSection

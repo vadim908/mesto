@@ -1,17 +1,20 @@
 export class Popup {
     constructor(popupElement){
         this._popupElement = popupElement;
+        this._closePopupKeyEscape = this._closePopupKeyEscape.bind(this);
+        this._closeOverlay= this._closeOverlay.bind(this);
+        this.close = this.close.bind(this)
     }
 
     _closePopupKeyEscape(evt){
         if (evt.key === "Escape" && this._popupElement != null) {
-            this.close.bind(this._popupElement);
+            this.close(this._popupElement);
         }
     };
     
     _closeOverlay(evt){
         if (evt.target === this._popupElement) {
-            this.close.bind(this._popupElement);
+            this.close(this._popupElement);
         }
     };
 
@@ -29,7 +32,7 @@ export class Popup {
 
     setEventListeners(){
        
-        this._popupElement.querySelector(".popup__button-close").addEventListener('click', this.close());
+        this._popupElement.querySelector(".popup__button-close").addEventListener('click', this.close);
         
     }
 }

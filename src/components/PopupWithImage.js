@@ -14,7 +14,6 @@ export class PopupWithImage extends Popup {
         poopImgCon.src = img.src;
         poopImgTitle.textContent = header.textContent;
         poopImgCon.alt = header.textContent;
-        super.setEventListeners();
         super.open();
 
     };
