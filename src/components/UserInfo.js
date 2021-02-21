@@ -2,6 +2,7 @@ export class UserInfo {
     constructor(data){
         this._profileName = document.querySelector(data.name);
         this._profileAboult = document.querySelector(data.post);
+        this._imgProfile = document.querySelector('.profile-avatar__avatar');
     }
 
     getUserInfo(){
@@ -13,6 +14,15 @@ export class UserInfo {
     
     setUserInfo(item){
         this._profileName.textContent = item.name;
-        this._profileAboult.textContent = item.post;
+        this._profileAboult.textContent = item.about;
+        this._imgProfile.setAttribute('src' , item.avatar);
+    }
+
+    setUserId(Id){
+        this._userId = Id;
+    }
+
+    returnUserId(){
+        return this._userId;
     }
 }

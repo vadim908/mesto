@@ -1,8 +1,9 @@
 .element__content {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    grid-template-rows: repeat(2, minmax(min-content, max-content));
     justify-content: space-between;
-    align-items: center;
+    align-content: center;
     padding-left: 21px;
     padding-right: 15px;
     height: 79px;

@@ -1,80 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>maestro</title>
-    </head>
-    <body class="page">
-        <header class="header">
-            <img src="<%=require('./image/Vector.svg')%>" alt="Лого" class="logo" />
-        </header>
-        <main class="content">
-            <section class="profile">
-                <div class="profile__form">
-                    <img src="<%=require('./image/avatar.png')%>" alt="Аватарка" class="profile__avatar" />
-                    <h1 class="profile__title">Жак-Ив Кусто</h1>
-                    <button type="button" class="profile__button">
-                        <img src="<%=require('./image/button__prof.svg')%>" alt="Карандаш" class="profile__img" />
-                    </button>
-                    <p class="profile__subtitle">Исследователь океана</p>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>maestro</title>
+</head>
+
+<body class="page">
+    <header class="header">
+        <img src="<%=require('./image/Vector.svg')%>" alt="Лого" class="logo" />
+    </header>
+    <main class="content">
+        <section class="profile">
+            <div class="profile__form">
+                <div class="profile-avatar__container">
+                <img src="<%=require('./image/avatar.png')%>" alt="Аватарка" class="profile-avatar__avatar"/>
+                <button type="button" class="profile-avatar__button"></button>
                 </div>
-                <button type="button" class="button">
+                <h1 name="name" class="profile__title">Жак-Ив Кусто</h1>
+                <button type="button" class="profile__button">
+                        <img src="<%=require('./image/button__prof.svg')%>" alt="Карандаш" class="profile__img" />
+                        
+                    </button>
+                <p name="post" class="profile__subtitle">Исследователь океана</p>
+            </div>
+            <button type="button" class="button">
                     <img src="<%=require('./image/Plus.svg')%>" alt="Плюс" />
                 </button>
-            </section>
+        </section>
 
-            <section class="elements">
-                <template id="card">
+        <section class="elements">
+            <template id="card">
                     <div class="element">
                         <img src="<%=require('./image/1.png')%>" alt="Караченск" class="element__img" />
                         <button type="button" class="element__trash"></button>
                         <div class="element__content">
                             <h2 class="element__title">Карачаевск</h2>
                             <button type="button" class="element__heart"></button>
+                            <span class="element__number"></span>
                         </div>
                     </div>
                 </template>
-            </section>
-        </main>
-        <footer class="footer">
-            <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-        </footer>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
 
-        <div class="popup popup-cards">
-            <div class="popup__position">
-                <button type="button" class="popup__button-close popup-cards__button-close"></button>
-                <form id="vds" name="poop-container" novalidate class="popup__container popup-cards__container">
-                    <h2 class="popup__title">Новое место</h2>
-                    <input id="popup-text" required minlength="2" maxlength="30" name="name" type="text" placeholder="Название" value="" class="popup__text popup-cards__name" />
-                    <span id="popup-text-error" class="error"></span>
-                    <input id="popup-url" name="link" type="url" required placeholder="Ссылка на картинку" value="" class="popup__text popup-cards__url" />
-                    <span id="popup-url-error" class="error"></span>
-                    <button type="submit" class="popup__button popup-cards__button">Создать</button>
-                </form>
-            </div>
+    <div class="popup popup-cards">
+        <div class="popup__position">
+            <button type="button" class="popup__button-close popup-cards__button-close"></button>
+            <form id="vds" name="poop-container" novalidate class="popup__container popup-cards__container">
+                <h2 class="popup__title">Новое место</h2>
+                <input id="popup-text" required minlength="2" maxlength="30" name="name" type="text" placeholder="Название" value="" class="popup__text popup-cards__name" />
+                <span id="popup-text-error" class="error"></span>
+                <input id="popup-url" name="link" type="url" required placeholder="Ссылка на картинку" value="" class="popup__text popup-cards__url" />
+                <span id="popup-url-error" class="error"></span>
+                <button type="submit" class="popup__button popup-cards__button">Создать</button>
+            </form>
         </div>
+    </div>
 
-        <div class="popup popup-edit">
-            <div class="popup__position">
-                <button type="button" class="popup__button-close popup-edit__button-close"></button>
-                <form name="poop-container" novalidate class="popup__container popup-edit__container">
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <input id="popup-author" name="name" type="text" value="" required placeholder="Жак-Ив Кусто" minlength="2" maxlength="40" class="popup__text popup__text_author" />
-                    <span id="popup-author-error" class="error"></span>
-                    <input id="popup-characteristic" name="post" value="" required type="text" placeholder="Исследователь океана" minlength="2" maxlength="200" class="popup__text popup__text_characteristic" />
-                    <span id="popup-characteristic-error" class="error"></span>
-                    <button type="submit" class="popup__button popup-edit__button">Сохранить</button>
-                </form>
-            </div>
+    <div class="popup popup-edit">
+        <div class="popup__position">
+            <button type="button" class="popup__button-close popup-edit__button-close"></button>
+            <form name="poop-container" novalidate class="popup__container popup-edit__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input id="popup-author" name="name" type="text" value="" required placeholder="Жак-Ив Кусто" minlength="2" maxlength="40" class="popup__text popup__text_author" />
+                <span id="popup-author-error" class="error"></span>
+                <input id="popup-characteristic" name="post" value="" required type="text" placeholder="Исследователь океана" minlength="2" maxlength="200" class="popup__text popup__text_characteristic" />
+                <span id="popup-characteristic-error" class="error"></span>
+                <button type="submit" class="popup__button popup-edit__button">Сохранить</button>
+            </form>
         </div>
+    </div>
 
-        <div class="popup popup-img">
-            <div class="popup__position">
-                <button type="button" class="popup__button-close popup-img__button-close"></button>
-                <img src="<%=require('./image/1.png')%>" alt="" class="popup-img__content" />
-                <h2 class="popup-img__title">Карачаевск</h2>
-            </div>
+    <div class="popup popup-img">
+        <div class="popup__position">
+
+            <button type="button" class="popup__button-close popup-img__button-close"></button>
+            <img src="<%=require('./image/1.png')%>" alt="" class="popup-img__content" />
+            <h2 class="popup-img__title">Карачаевск</h2>
         </div>
-    </body>
+    </div>
+
+    <div class="popup popup-del">
+        <div class="popup__position">
+            <button type="button" class="popup__button-close popup-edit__button-close"></button>
+            <form name="poop-container" novalidate class="popup__container popup-del__container">
+                <h2 class="popup-del__title">Вы уверены?</h2>
+                <button type="button" class="popup__button popup-del__button">Да</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup-avatar">
+        <div class="popup__position">
+            <button type="button" class="popup__button-close popup-edit__button-close"></button>
+            <form name="poop-container" novalidate class="popup__container popup-avatar__container">
+                <h2 class="popup__title popup-avatar__title">Обновить аватар</h2>
+                <input id="popup-avatar" name="name" type="url" value="" required placeholder="url" minlength="2" class="popup__text popup__text_avatar" />
+                <span id="popup-avatar-error" class="error"></span>
+                <button type="submit" class="popup__button popup-avatar__button">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
 </html>

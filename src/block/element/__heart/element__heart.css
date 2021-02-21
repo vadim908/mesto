@@ -1,5 +1,6 @@
 .element__heart{
     border: 0;
+    align-self: center;
     background-color: white;
     background: url('../../../image/like.svg');
     background-size: 100%;

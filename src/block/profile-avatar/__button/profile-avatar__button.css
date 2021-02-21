@@ -1,0 +1,18 @@
+.profile-avatar__button{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background: none;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.profile-avatar__button:hover{
+    background-color: rgba(0, 0, 0, .8);
+    background-image: url(../../..//image/Vector@2x.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}

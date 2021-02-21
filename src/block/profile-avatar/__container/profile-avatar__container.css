@@ -1,0 +1,16 @@
+.profile-avatar__container{
+    display: flex;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 100px;
+    grid-row: 1/-1;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    
+    .profile-avatar__container{
+        grid-row: 1/1;
+        grid-column: 1/-1;
+    }
+}

@@ -1,0 +1,17 @@
+.popup-del__title {
+    width: calc(100% - 72px);
+    margin: auto;
+    padding-top: 34px;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1.2;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    
+    .popup-del__title {
+        width: calc(100% - 44px);
+        padding-top: 25px;
+        font-size: 18px;
+    }
+}

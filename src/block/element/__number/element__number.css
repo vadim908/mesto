@@ -1,0 +1,8 @@
+.element__number {
+    grid-column: 2/3;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    min-height: 16px;
+    min-width: 20px;
+}
