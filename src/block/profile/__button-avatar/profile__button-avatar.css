@@ -1,4 +1,4 @@
-.profile-avatar__button{
+.profile__button-avatar{
     position: absolute;
     top: 0;
     left: 0;
@@ -10,9 +10,9 @@
     outline: none;
 }
 
-.profile-avatar__button:hover{
+.profile__button-avatar:hover{
     background-color: rgba(0, 0, 0, .8);
-    background-image: url(../../..//image/Vector@2x.png);
+    background-image: url(../../../image/Vector@2x.png);
     background-position: center;
     background-repeat: no-repeat;
 }

@@ -2,7 +2,7 @@ export class UserInfo {
     constructor(data){
         this._profileName = document.querySelector(data.name);
         this._profileAboult = document.querySelector(data.post);
-        this._imgProfile = document.querySelector('.profile-avatar__avatar');
+        this._imgProfile = document.querySelector('.profile__avatar');
     }
 
     getUserInfo(){

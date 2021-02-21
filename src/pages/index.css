@@ -40,7 +40,7 @@
 @import url(../block/popup-del/__button/popup-del__button.css);
 @import url(../block/popup-del/__title/popup-del__title.css);
 
-@import url(../block/profile-avatar/__avatar/profile-avatar__avatar.css);
-@import url(../block/profile-avatar/__button/profile-avatar__button.css);
-@import url(../block/profile-avatar/__container/profile-avatar__container.css);
-@import url(../block/popup-avatar/__title/popup-avatar__title.css)
+@import url(../block/profile/__avatar/profile__avatar.css);
+@import url(../block/profile/__button-avatar/profile__button-avatar.css);
+@import url(../block/profile/__container-avatar/profile__container-avatar.css);
+@import url(../block/popup-avatar/__title/popup-avatar__title.css);

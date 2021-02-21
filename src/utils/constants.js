@@ -17,7 +17,7 @@ export const inputCardName = document.querySelector('.popup-cards__name');
 export const inputCardUrl = document.querySelector('.popup-cards__url');
 export const popupAvatar = document.querySelector('.popup-avatar');
 export const inputAvatar = document.querySelector('.popup__text_avatar');
-export const profileAvatar = document.querySelector('.profile-avatar__button');
+export const profileAvatar = document.querySelector('.profile__button-avatar');
 
 export const VALIDATION_SELECTORS_CONFIG = {
     formSelector: '.popup__container',

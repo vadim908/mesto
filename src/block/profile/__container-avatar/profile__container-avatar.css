@@ -1,4 +1,4 @@
-.profile-avatar__container{
+.profile__container-avatar{
     display: flex;
     position: relative;
     width: 120px;
@@ -9,7 +9,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px){
     
-    .profile-avatar__container{
+    .profile__container-avatar{
         grid-row: 1/1;
         grid-column: 1/-1;
     }

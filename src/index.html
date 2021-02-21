@@ -14,9 +14,9 @@
     <main class="content">
         <section class="profile">
             <div class="profile__form">
-                <div class="profile-avatar__container">
-                <img src="<%=require('./image/avatar.png')%>" alt="Аватарка" class="profile-avatar__avatar"/>
-                <button type="button" class="profile-avatar__button"></button>
+                <div class="profile__container-avatar">
+                <img src="<%=require('./image/avatar.png')%>" alt="Аватарка" class="profile__avatar"/>
+                <button type="button" class="profile__button-avatar"></button>
                 </div>
                 <h1 name="name" class="profile__title">Жак-Ив Кусто</h1>
                 <button type="button" class="profile__button">
@@ -87,7 +87,7 @@
 
     <div class="popup popup-del">
         <div class="popup__position">
-            <button type="button" class="popup__button-close popup-edit__button-close"></button>
+            <button type="button" class="popup__button-close popup-del__button-close"></button>
             <form name="poop-container" novalidate class="popup__container popup-del__container">
                 <h2 class="popup-del__title">Вы уверены?</h2>
                 <button type="button" class="popup__button popup-del__button">Да</button>
@@ -97,7 +97,7 @@
 
     <div class="popup popup-avatar">
         <div class="popup__position">
-            <button type="button" class="popup__button-close popup-edit__button-close"></button>
+            <button type="button" class="popup__button-close popup-avatar__button-close"></button>
             <form name="poop-container" novalidate class="popup__container popup-avatar__container">
                 <h2 class="popup__title popup-avatar__title">Обновить аватар</h2>
                 <input id="popup-avatar" name="name" type="url" value="" required placeholder="url" minlength="2" class="popup__text popup__text_avatar" />
