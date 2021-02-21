@@ -1,6 +1,6 @@
 import { PopupWithImage } from './PopupWithImage.js'
 
-class Cards {
+class Card {
     constructor({ name, link, _id, likes, owner, userId }, template, openPopupImg, delButtonForm, addLike, removeLike) {
         this._name = name;
         this._link = link;
@@ -135,4 +135,4 @@ class Cards {
 
 
 
-export { Cards };
+export { Card };

@@ -1,4 +1,4 @@
-import { Cards } from "../components/card.js";
+import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Section } from '../components/Section.js';
 import { Popup } from '../components/Popup.js';
@@ -29,8 +29,8 @@ import {
     profileAvatar
 } from '../utils/constants.js'
 import './index.css';
-import { Api } from '../components/api.js'
-import { PopupDelForm } from '../components/popupDelForm.js'
+import { Api } from '../components/Api.js'
+import { PopupDelForm } from '../components/PopupDelForm.js'
 
 
 const api = new Api({
@@ -45,27 +45,27 @@ api.getInfoProfile()
     .then((result) => {
         cardsData.setUserId(result._id);
         cardsData.setUserInfo(result)
-    });
+    })
+    .catch((err)=> console.log(err));
 
 
 const popupCardsCreate = new PopupWithForm(
     popupCards,
-    (evt) => {
-        evt.preventDefault();
+    (data) => {
         renderLoading('.popup-cards', true)
-        api.addCards({ name: inputCardName.value, link: inputCardUrl.value })
+        api.addCards(data)
             .then((res) => {
                 cardsList.prependAddNewItem(createNewCard(res))
                 renderLoading('.popup-cards', false)
             })
+            .catch((err)=> console.log(err));
             popupCardsCreate.close()
-
-
     }
 );
-popupCardsCreate.setEventListeners();
+popupCardsCreate.setEventListeners()
 
-const cardsData = new UserInfo({ name: ".profile__title", post: ".profile__subtitle" })
+
+const cardsData = new UserInfo({ name: ".profile__title", post: ".profile__subtitle", avatar: ".profile__avatar" })
 
 
 
@@ -78,30 +78,31 @@ api.getCards()
     .then(res => {
         cardsList.renderItems(res);
         console.log(res)
-    });
+    })
+    .catch((err)=> console.log(err));
 
 const editPopup = new PopupWithForm(
     popupEdit,
-    (evt) => {
-        evt.preventDefault();
+    (data) => {
         renderLoading('.popup-edit', true)
-        api.setInfoProfile({ name: popupAuthor.value, post: popupCharacteristic.value })
+        api.setInfoProfile(data)
             .then(res => {
                 cardsData.setUserInfo(res)
                 editPopup.close()
                 renderLoading('.popup-edit', false)
             })
+            .catch((err)=> console.log(err));
             editPopup.close()
     })
+    editPopup.setEventListeners();
 
-editPopup.setEventListeners();
+
 
 profileButton.addEventListener("click", () => {
     popupAuthor.value = cardsData.getUserInfo().popupProfileName;
     popupCharacteristic.value = cardsData.getUserInfo().popupProfilePost;
     editPopup.open(popupEdit)
     profileValidator.toggleFormState();
-    editPopup.setEventListeners();
 
 });
 
@@ -109,7 +110,7 @@ profileButton.addEventListener("click", () => {
 buttonSetCards.addEventListener("click", () => {
     popupCardsCreate.open(popupCards)
     cardsValidator.toggleFormState();
-    popupCardsCreate.setEventListeners()
+
 });
 
 const popupWithImg = new PopupWithImage(popupImg);
@@ -141,7 +142,7 @@ function cardDelById(card) {
 
 
 function createNewCard({ name, link, _id, likes, owner }) {
-    const card = new Cards({ name, link, _id, likes, owner, userId: cardsData.returnUserId() }, "#card", handleCardClick, () => {
+    const card = new Card({ name, link, _id, likes, owner, userId: cardsData.returnUserId() }, "#card", handleCardClick, () => {
             buttonDel.open();
             buttonDel.setEventListeners(cardDelById(card))
             
@@ -151,11 +152,13 @@ function createNewCard({ name, link, _id, likes, owner }) {
                 .then(res =>
                     card.likeCounter(res.likes.length)
                 )
+                .catch((err)=> console.log(err));
         }, () => {
             api.removeLike(_id)
                 .then(res =>
                     card.likeCounter(res.likes.length)
                 )
+                .catch((err)=> console.log(err));
         }
     )
     return card.generateCard();
@@ -164,20 +167,19 @@ function createNewCard({ name, link, _id, likes, owner }) {
 
 const avatar = new PopupWithForm(
     popupAvatar,
-    (evt) => {
-        evt.preventDefault();
+    (data) => {
         renderLoading('.popup-avatar', true)
-        api.setAvatar(inputAvatar.value)
+        api.setAvatar(data)
             .then(res => cardsData.setUserInfo(res))
+            .catch((err)=> console.log(err));
             renderLoading('.popup-avatar', false)
             avatar.close()
     }
 )
-
+avatar.setEventListeners();
 
 profileAvatar.addEventListener('click', () => {
-    avatar.open();
-    avatar.setEventListeners()
+    avatar.open(); 
 })
 
 const profileValidator = new FormValidator(VALIDATION_SELECTORS_CONFIG, popupEditForm);

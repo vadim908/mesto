@@ -40,14 +40,14 @@ export class Api{
         return res.json()
     })}
 
-    setAvatar(avatar){
+    setAvatar({avatar}){
       return  fetch(`${this._url}users/me/avatar`, {
         method: 'PATCH',
         headers: {
           authorization: 'cf958a2d-c555-45eb-b9ce-4e48b9f4e768' ,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({avatar: avatar})
+        body: JSON.stringify({avatar})
 
       })
       .then(res => this._checkResult(res))
