@@ -7,9 +7,8 @@ export class Api{
     getInfoProfile(){
       return  fetch(`${this._url}users/me`, {
       headers: this._header})
-      .then(res => {
-        return res.json()
-    })
+      .then(res => this._checkResult(res))
+      .catch(err =>this._showError(err));
     }
 
     setInfoProfile({name, post}){
@@ -24,21 +23,16 @@ export class Api{
           about: post,
         })
       })
-      .then((res) => {
-        if(res.ok){
-          return res.json();
-        }
-          return Promise.reject(`Ошибка: ${res.status}`);
-      })
+      .then(res => this._checkResult(res))
+      .catch(err =>this._showError(err));
     }
 
     getCards(){
       return  fetch(`${this._url}cards`, {
     headers: this._header
   })
-    .then(res => {
-        return res.json()
-    })}
+  .then(res => this._checkResult(res))
+  .catch(err =>this._showError(err));}
 
     setAvatar({avatar}){
       return  fetch(`${this._url}users/me/avatar`, {
@@ -102,7 +96,6 @@ export class Api{
             
             _showError(err) {
               console.log(err);
-              return Promise.reject(err);
             };
 
             delCards(cardId){
