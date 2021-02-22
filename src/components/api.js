@@ -55,6 +55,7 @@ export class Api{
         
     }
 
+    // Создание карточки
     addCards({name, link}){
         return  fetch(`${this._url}cards`, {
             method: 'POST',
